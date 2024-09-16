@@ -44,6 +44,8 @@ export async function POST(req: Request) {
                 If available, include any information about the artwork's title and its current location or owner.
                 
                 Do not include any system information.
+                Do not include any irrelevant information.
+                Do not include any interaction with the user.
                 `,
             },
             {

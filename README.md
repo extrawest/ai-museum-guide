@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Museum Guide
 
-## Getting Started
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)]()
+[![Maintaner](https://img.shields.io/static/v1?label=Nariman%20Mamutov&message=Maintainer&color=red)](mailto:nairman.mamutov@extrawest.com)
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)]()
+![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)
+![GitHub release](https://img.shields.io/badge/release-v1.0.0-blue)
 
-First, run the development server:
+![](https://raw.githubusercontent.com/extrawest/arnie-ai-coach/main/preview.gif)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+AI Museum Guide is a Next.js-based application designed to provide an enhanced museum experience by allowing users to search for artworks in the app's database. The app uses the Groq LLaMA model to identify artworks and provide detailed descriptions and information about them.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Artwork Search:** Users can search for artworks available in the database.
+- **Detailed Descriptions:** After selecting an artwork, the app provides detailed information about its history, style, artist, and more.
+- **Responsive UI:** Built with the ShadCN library for a clean, responsive, and interactive user interface.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+- **Frontend:** Next.js with React.js
+- **Backend:** Node.js
+- **AI Model:** Groq LLaMA for generating detailed descriptions of the artworks
+- **UI Library:** ShadCN for a seamless and modern user interface
 
-To learn more about Next.js, take a look at the following resources:
+## Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Install dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+2. Set up environment variables:
+   Create a `.env.local` file in the root directory and add the required API keys and configuration for the Groq LLaMA model, if applicable.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Run the development server:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   npm run dev
+   ```
+
+4. Open the app in your browser:
+   ```
+   http://localhost:3000
+   ```
+
+## Usage
+
+1. Search for an artwork from the available database.
+2. View detailed information and descriptions about the selected artwork.
+
+## Contributing
+
+Contributions are welcome! Feel free to submit issues or pull requests.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
