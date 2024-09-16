@@ -1,25 +1,25 @@
 "use client"
 
-import axios from 'axios'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { Artwork } from '@/museumAPI'
+import axios from 'axios'
+import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/card'
-import { Skeleton } from '@/components/ui/skeleton'
+import { ArrowLeft } from 'lucide-react'
+
+
+import { Artwork } from '@/museumAPI'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { Skeleton } from '@/components/ui/skeleton'
+import { Card, CardContent, CardTitle } from '@/components/ui/card'
 
 export default function Page() {
     const { artworkid } = useParams()
     const [error, setError] = useState<string>();
     const [artwork, setArtwork] = useState<Artwork>();
     const [analysis, setAnalysis] = useState<string>();
-    const [loading, setLoading] = useState<boolean>(true);
+    const [loading, setLoading] = useState<boolean>(false);
     const [analysisLoading, setAnalysisLoading] = useState<boolean>(false);
-
-
-    console.log(artwork);
 
     useEffect(() => {
         const fetchArtwork = async () => {
@@ -83,6 +83,11 @@ export default function Page() {
                 </Card>
             ) : artwork ? (
                 <Card className="w-full p-4">
+                    <div>
+                        <Link href="/">
+                            <ArrowLeft className="w-6 h-6" />
+                        </Link>
+                    </div>
                     <CardContent className="flex flex-col md:flex-row gap-8">
                         <div className="w-full md:w-1/2">
                             <div className="aspect-square relative">

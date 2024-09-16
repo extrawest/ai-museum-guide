@@ -6,7 +6,7 @@ import { useDebounce } from "use-debounce";
 import RenderIfVisible from "react-render-if-visible";
 
 import { Input } from "@/components/ui/input";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Progress } from "@/components/ui/progress";
 import { SingleCard } from "@/components/SingleCard";
 import { MuseumObjectSearchResult } from "@/museumAPI";
 
@@ -18,6 +18,7 @@ export default function Home() {
   const [searchQueue] = useDebounce(search, 1000);
   const [artworksNumber, setArtworksNumber] = useState(0);
   const [artworkIds, setArtworkIds] = useState<number[]>([]);
+  const [progressValue, setProgressValue] = useState(0);
 
   useEffect(() => {
     let isMounted = true;
@@ -50,6 +51,32 @@ export default function Home() {
     };
   }, [searchQueue]);
 
+  useEffect(() => {
+    let animationFrameId: number;
+    let lastUpdateTime = Date.now();
+
+    const animate = () => {
+      const currentTime = Date.now();
+      const deltaTime = currentTime - lastUpdateTime;
+
+      if (deltaTime > 50) {
+        setProgressValue((prevValue) => {
+          const increment = Math.random() * 5;
+          const newValue = prevValue + increment;
+          return newValue > 100 ? 0 : newValue;
+        });
+        lastUpdateTime = currentTime;
+      }
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
   return (
     <div className="container mx-auto px-4 mt-10">
       <header className="max-w-md mx-auto flex py-2 border-b flex-col mb-8">
@@ -68,10 +95,7 @@ export default function Home() {
 
       <div className="flex flex-col gap-4 justify-center items-center">
         {loading ? (
-          <>
-            <Skeleton className="h-[300px] w-full" />
-            <Skeleton className="h-[300px] w-full" />
-          </>
+          <Progress value={progressValue} color="white" />
         ) : (
           artworkIds?.map((id) => (
             <div key={id} className="w-3/6">

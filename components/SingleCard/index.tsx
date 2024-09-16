@@ -1,11 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 import { Artwork } from "@/museumAPI";
 import { Skeleton } from "../ui/skeleton";
 import { SingleCardProps } from "./types";
 import { Card, CardContent, CardTitle } from "../ui/card";
-import Link from "next/link";
 
 export const SingleCard: FC<SingleCardProps> = ({
     artworkId

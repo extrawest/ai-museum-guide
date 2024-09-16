@@ -10,9 +10,6 @@ export async function POST(req: Request) {
   if (!artwork) {
     return NextResponse.json({ error: "No artwork provided" }, { status: 400 });
   }
-
-  console.log(artwork);
-
   const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
   try {
@@ -30,22 +27,22 @@ export async function POST(req: Request) {
                 You are an AI trained to analyze and provide insights about artworks. For the given image, please provide the following information:
 
                 Historical and Cultural Context:
-
                 Explain the historical period and cultural significance of the artwork.
                 Describe any relevant historical events, movements, or societal influences that may have impacted the creation of the artwork.
-                Visual Analysis:
 
+                Visual Analysis:
                 Describe the color composition of the artwork. Include details about the primary colors used and any notable color contrasts.
                 Analyze the style of the artwork. Mention any specific art movements or techniques that are evident in the piece.
                 Discuss the composition of the artwork, including the arrangement of elements, use of space, and overall visual balance.
-                Artist Information:
 
+                Artist Information:
                 Provide details about the artist who created the artwork, including their name, background, and any notable achievements.
                 Include information about the artist's influence or impact on the art world.
-                Artwork Details:
 
+                Artwork Details:
                 State the year the artwork was created.
                 If available, include any information about the artwork's title and its current location or owner.
+                
                 Do not include any system information.
                 `,
             },
