@@ -6,7 +6,7 @@
 ![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)
 ![GitHub release](https://img.shields.io/badge/release-v1.0.0-blue)
 
-![](https://raw.githubusercontent.com/extrawest/arnie-ai-coach/main/preview.gif)
+![](https://raw.githubusercontent.com/extrawest/ai-museum-guide/main/preview.gif)
 
 AI Museum Guide is a Next.js-based application designed to provide an enhanced museum experience by allowing users to search for artworks in the app's database. The app uses the Groq LLaMA model to identify artworks and provide detailed descriptions and information about them.
 
