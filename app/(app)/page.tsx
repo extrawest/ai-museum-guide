@@ -16,12 +16,10 @@ export default function Home() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
   const [searchQueue] = useDebounce(search, 1000);
-  const [artworksNumber, setArtworksNumber] = useState(0);
   const [artworkIds, setArtworkIds] = useState<number[]>([]);
   const [progressValue, setProgressValue] = useState(0);
 
   useEffect(() => {
-    let isMounted = true;
     const controller = new AbortController();
 
     const fetchArtworks = async () => {
@@ -33,7 +31,6 @@ export default function Home() {
           { signal: controller.signal }
         );
         setArtworkIds(response.data.data.objectIDs);
-        setArtworksNumber(response.data.data.total);
       } catch (e: unknown) {
         console.error(e);
       } finally {
@@ -41,12 +38,11 @@ export default function Home() {
       }
     };
 
-    if (search) {
+    if (searchQueue) {
       fetchArtworks();
     }
 
     return () => {
-      isMounted = false;
       controller.abort();
     };
   }, [searchQueue]);

@@ -8,6 +8,8 @@
 
 ![](https://raw.githubusercontent.com/extrawest/ai-museum-guide/main/preview.gif)
 
+Live Demo: [AI Museum Guide](https://ai-museum-guide.vercel.app/)
+
 AI Museum Guide is a Next.js-based application designed to provide an enhanced museum experience by allowing users to search for artworks in the app's database. The app uses the Groq LLaMA model to identify artworks and provide detailed descriptions and information about them.
 
 ## Features
