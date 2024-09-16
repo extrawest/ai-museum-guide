@@ -51,9 +51,8 @@ export default function Home() {
   }, [searchQueue]);
 
   return (
-    <div className="max-w-md mx-auto mt-10">
-
-      <header className="flex  py-2 border-b flex-col">
+    <div className="container mx-auto px-4 mt-10">
+      <header className="max-w-md mx-auto flex py-2 border-b flex-col mb-8">
         <div className="flex items-center">
           <span className="text-lg font-bold">Artworks</span>
         </div>
@@ -67,18 +66,21 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="mt-4">
-        {
-          loading ? (
+      <div className="flex flex-col gap-4 justify-center items-center">
+        {loading ? (
+          <>
             <Skeleton className="h-[300px] w-full" />
-          ) : (
-            artworkIds?.map((id) => (
+            <Skeleton className="h-[300px] w-full" />
+          </>
+        ) : (
+          artworkIds?.map((id) => (
+            <div key={id} className="w-3/6">
               <RenderIfVisible defaultHeight={ESTIMATED_ITEM_HEIGHT} stayRendered>
                 <SingleCard artworkId={id} />
               </RenderIfVisible>
-            ))
-          )
-        }
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
